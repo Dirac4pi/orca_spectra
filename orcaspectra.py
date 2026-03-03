@@ -45,8 +45,8 @@ def orcaspectra(spec_files=None) -> None:
     except Exception as e:
       print(f"Error when loading {f}: {e}")
       continue
-  plt.xlabel('Wavelength / nm')
-  plt.ylabel('Absorbance')
+  plt.xlabel('Wavelength (nm)')
+  plt.ylabel('eps (L/mol/cm)')
   plt.legend()
   plt.tight_layout()
   plt.show()

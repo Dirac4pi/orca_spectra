@@ -1,0 +1,25 @@
+! PBE0 D3 DKH2 DKH-def2-TZVP SARC/J RIJCOSX TightSCF ESD(ABS) NoAutoStart MiniPrint NoPop CPCM(DMF)
+%MAXCORE 2000
+%PAL NPROCS 64 END
+%REL  PictureChange 2
+      FiniteNuc TRUE
+END
+%TDDFT  TDA FALSE
+        Triplets TRUE
+        NROOTS 5
+        IROOT 2
+        IROOTMULT Triplet
+        DOSOC TRUE               # S -> T spectra
+END
+%ESD  GSHESSIAN "/scr/601orca/orcascr/Ni0-dppb-eb-s0/Ni0-dppb-eb-s0.hess"
+      ESHESSIAN "/scr/601orca/orcascr/Ni0-dppb-eb-t2/Ni0-dppb-eb-t2.hess"
+      USEJ TRUE
+      DOHT TRUE
+      TEMP 298.15
+      STATES 1,2,3,4,5,6        # spin substates
+      UNIT NM
+      LINES GAUSS
+      INLINEW 250
+      NPOINTS 700000
+END
+* XYZFILE 0 1 /home/601orca/lky/Nickeneslife/Ni0-dppb-eb/relaxedTD/Ni0-dppb-eb-s0.xyz
